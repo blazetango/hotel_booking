@@ -46,10 +46,10 @@
   </div>
 
 
-  <div class="field">
-    <%= form.label :room_id %>
-    <%= form.collection_select(:room_id, Room.all, :id, :room_no, :prompt => 'Select') %>
-  </div>
+  <!--  <div class="field">
+    <%#= form.label :room_id %>
+    <%#= form.collection_select(:room_id, Room.all, :id, :room_no, :prompt => 'Select') %>
+  </div> -->
 
 
 
@@ -60,11 +60,9 @@
 
 
   <div class="actions">
-    
     <button type='button' id='check_status'>check availability </button>
   </div>
   <div class='available'>
-    
   </div>
 
   <div class="actions">
