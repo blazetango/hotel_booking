@@ -18,44 +18,44 @@
 //= require_tree .
 
 
- $(document).ready(function(){
- 	  $('.submit_booking').hide();
-    $('.datepicker').datepicker({
-    	format: "dd/mm/yyyy"
-    });
+$(document).ready(function(){
+  $('.submit_booking').hide();
+  $('.datepicker').datepicker({
+    format: "dd/mm/yyyy"
+  });
 
   $('#check_status').on('click',function(){
     var fromDate = $('#booking_from_date').val()
- 	  var toDate = $('#booking_to_date').val()
- 	  var hotelId = $('select[name="booking[hotel_id]"]').val()
- 	  var roomId = $('select[name="booking[room_id]"]').val()
- 	  var categoryId = $('select[name="booking[category_id]"]').val()
+    var toDate = $('#booking_to_date').val()
+    var hotelId = $('select[name="booking[hotel_id]"]').val()
+    var roomId = $('select[name="booking[room_id]"]').val()
+    var categoryId = $('select[name="booking[category_id]"]').val()
 
- 	  if (fromDate === '') {
- 	  	return alert ('from date is required field');
- 	  }
- 	  if (toDate === ''){
- 	    	return alert ('to date is required field');	
- 	  }
+    if (fromDate === '') {
+      return alert ('from date is required field');
+    }
+    if (toDate === ''){
+      return alert ('to date is required field'); 
+    }
     if (categoryId === ''){
- 	    	return alert ('please select category is required field');	
- 	  }
- 	  var data = {
- 	 	fromDate: fromDate,
- 	 	toDate: toDate,
- 	 	hotelId: hotelId,
- 	 	roomId: roomId,
- 	 	categoryId: categoryId,
- 	 }
+      return alert ('please select category is required field');  
+    }
+    var data = {
+      fromDate: fromDate,
+      toDate: toDate,
+      hotelId: hotelId,
+      roomId: roomId,
+      categoryId: categoryId,
+    }
 
-	  $.ajax({
-	    url:   '/api/v1/bookings/rooms_are_available',
-	    type: 'get',
-	    data: data,
-	    success: function(data) {
-	      $('.available').html(data.message);
-	      $('.submit_booking').show();
-	    }
-	  });
+    $.ajax({
+      url:   '/api/v1/bookings/rooms_are_available',
+      type: 'get',
+      data: data,
+      success: function(data) {
+        $('.available').html(data.message);
+        $('.submit_booking').show();
+      }
+    });
   })
 });

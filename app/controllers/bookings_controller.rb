@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :is_admin_user?
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   # GET /bookings
@@ -28,7 +27,6 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
-    binding.pry
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
