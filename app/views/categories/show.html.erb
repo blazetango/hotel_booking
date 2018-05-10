@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Bed type:</strong>
+  <%= @category.bed_type %>
+</p>
+
+<p>
+  <strong>Side facing:</strong>
+  <%= @category.side_facing %>
+</p>
+
+<p>
+  <strong>Gym:</strong>
+  <%= @category.gym %>
+</p>
+
+<p>
+  <strong>Tarrif:</strong>
+  <%= @category.tarrif %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

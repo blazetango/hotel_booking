@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_date: 2018-05-09
+  to_date: 2018-05-09
+  customer_id: 1
+  status: MyString
+
+two:
+  from_date: 2018-05-09
+  to_date: 2018-05-09
+  customer_id: 1
+  status: MyString
