@@ -5,5 +5,4 @@ class CustomersController < ApplicationController
     @bookings = Booking.where(customer_id: current_user.id)
   end
 
-
 end

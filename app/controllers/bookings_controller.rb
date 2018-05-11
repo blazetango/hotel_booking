@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
+  before_action :is_admin_user?, except: [:show]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   # GET /bookings
@@ -16,7 +17,6 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
-    @rooms = Room.where(status: 'open')
   end
 
   # GET /bookings/1/edit
@@ -75,7 +75,7 @@ class BookingsController < ApplicationController
     
     def is_admin_user?
       if current_user.type != 'Admin'
-        redirect_to customer_dashboard_path
+        redirect_to dashboard_path
       end
     end
 end

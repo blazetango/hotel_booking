@@ -35,10 +35,11 @@
     <%= form.text_field :to_date, id: :booking_to_date, class: 'datepicker', required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :hotel_id %>
-    <%= form.collection_select(:hotel_id, Hotel.all, :id, :name, :prompt => 'Select') %>
-  </div>
+  <!--   <div class="field">
+    <%#= form.label :hotel_id %>
+    <%#= form.collection_select(:hotel_id, Hotel.all, :id, :name, :prompt => 'Select') %>
+  </div> -->
+  <%= form.hidden_field :hotel_id, value: 1 %>
 
   <div class="field">
     <%= form.label :category_id %>

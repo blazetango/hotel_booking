@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+  User.create(email: 'admin@admin.com', password: '123123123', type: 'Admin')
+
+  room_type = ["Delux Rooms", "Luxury Rooms", "Luxury Suits", "Presidental Suite"] 
+
+  room_type.each do |type|
+    Category.create(name: type )
+  end

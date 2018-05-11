@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :is_admin_user?
   # GET /rooms
   # GET /rooms.json
   def index
@@ -65,6 +66,12 @@ class RoomsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_room
       @room = Room.find(params[:id])
+    end
+
+    def is_admin_user?
+      if current_user.type != 'Admin'
+        redirect_to dashboard_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
