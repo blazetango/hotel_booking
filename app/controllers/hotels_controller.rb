@@ -1,6 +1,7 @@
 class HotelsController < ApplicationController
   before_action :set_hotel, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :is_admin_user?
   # GET /hotels
   # GET /hotels.json
   def index

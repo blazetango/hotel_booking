@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_admin!
   before_action :is_admin_user?, except: [:show]
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-
+  layout 'admin'
   # GET /bookings
   # GET /bookings.json
   def index
@@ -64,20 +64,21 @@ class BookingsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_booking
-      @booking = Booking.find(params[:id])
-    end
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def booking_params
-      params.require(:booking).permit(:from_date, :to_date, :customer_id, :room_id, :status, :hotel_id, :customer_name, :customer_phone, :customer_email)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def booking_params
+    params.require(:booking).permit(:from_date, :to_date, :customer_id, :room_id, :status, :hotel_id, :customer_name, :customer_phone, :customer_email, :category_id)
+  end
+
+  def is_admin_user?
+    if current_admin.type != 'Admin'
+      binding.pry
+      redirect_to dashboard_path
     end
-    
-    def is_admin_user?
-      if current_user.type != 'Admin'
-        redirect_to dashboard_path
-      end
-    end
+  end
 end
 
 

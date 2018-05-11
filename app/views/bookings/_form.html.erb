@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <div class=errors></div>
+
   <div class="field">
     <%= form.label :customer_name %>
     <%= form.text_field :customer_name, id: :booking_customer_name %>
@@ -26,11 +28,13 @@
 
 
   <div class="field">
+  <div class='errors_fromdate'></div>
     <%= form.label :from_date %>
     <%= form.text_field :from_date, id: :booking_from_date, class: 'datepicker', required: true %>
   </div>
 
   <div class="field">
+  <div class='errors_todate'></div>
     <%= form.label :to_date %>
     <%= form.text_field :to_date, id: :booking_to_date, class: 'datepicker', required: true %>
   </div>
@@ -42,6 +46,7 @@
   <%= form.hidden_field :hotel_id, value: 1 %>
 
   <div class="field">
+  <div class='errors_category'></div>
     <%= form.label :category_id %>
     <%= form.collection_select(:category_id, Category.all, :id, :name, :prompt => 'Select', required: true ) %>
   </div>

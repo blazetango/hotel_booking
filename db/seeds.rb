@@ -12,3 +12,5 @@
   room_type.each do |type|
     Category.create(name: type )
   end
+  
+  Hotel.create(name: 'Taj')

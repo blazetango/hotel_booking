@@ -32,14 +32,17 @@ $(document).ready(function(){
     var categoryId = $('select[name="booking[category_id]"]').val()
 
     if (fromDate === '') {
-      return alert ('from date is required field');
-    }
+      return $('.errors_fromdate').html('from date is required field');
+      }
+      $('.errors_fromdate').html('')
     if (toDate === ''){
-      return alert ('to date is required field'); 
+      return $('.errors_todate').html('to date is required field'); 
     }
+    $('.errors_todate').html('')
     if (categoryId === ''){
-      return alert ('please select category is required field');  
+      return $('.errors_category').html('please select category is required field');  
     }
+    $('.errors_category').html('')
     var data = {
       fromDate: fromDate,
       toDate: toDate,

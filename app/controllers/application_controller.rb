@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.type == 'Admin' #Assuming there is such a function
-      basepath = root_path
+      basepath = bookings_path
     else
       basepath = dashboard_path
     end
